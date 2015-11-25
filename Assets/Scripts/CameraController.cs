@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        if (!target)
+        if (target == null)
         {
             target = GameObject.FindWithTag("MainCamera");
         }

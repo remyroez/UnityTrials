@@ -400,7 +400,7 @@ GameObject:
   - 54: {fileID: 759285676}
   m_Layer: 0
   m_Name: Capsule Body
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ba4457a63198946b2a8309199a86d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1771540155}
+  target: {fileID: 0}
 --- !u!114 &838099079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ff4d32c82b3264297c221f849e07d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 136750009}
+  target: {fileID: 0}
 --- !u!1 &1208762718
 GameObject:
   m_ObjectHideFlags: 0
