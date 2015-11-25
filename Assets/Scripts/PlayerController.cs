@@ -23,13 +23,18 @@ public class PlayerController : MonoBehaviour
         inputMotion = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (inputMotion.magnitude > 0)
         {
-            MoveTarget(target, inputMotion * Time.deltaTime);
+            MoveTarget(target, inputMotion);
         }
 
         Vector3 mouseMotion = new Vector3(0, Input.GetAxis("Mouse X") * 100, 0);
         if (mouseMotion.magnitude > 0)
         {
             RotateTarget(target, mouseMotion * Time.deltaTime);
+        }
+
+		if (Input.GetButtonDown("Jump"))
+		{
+			JumpCharacter(target, Vector3.up);
         }
     }
 
@@ -54,4 +59,15 @@ public class PlayerController : MonoBehaviour
             (handler, data) => handler.Rotate(eulerAngles)
         );
     }
+
+	void JumpCharacter(GameObject gameObject, Vector3 motion)
+	{
+		if (!gameObject) return;
+
+		ExecuteEvents.Execute<ICharacterHandler>(
+			gameObject,
+			null,
+			(handler, data) => handler.Jump(motion)
+		);
+	}
 }
