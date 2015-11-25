@@ -26,6 +26,15 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 
 	}
 
+	void Reset()
+	{
+		Cleanup();
+		velocity = Vector3.zero;
+
+		SetPosition(new Vector3(0, 10, 0));
+		SetRotation(Quaternion.identity);
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -35,6 +44,11 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 
 		if (isGrounded)
 			velocity = Vector3.zero;
+
+		if (transform.position.y < 0)
+		{
+			Reset();
+        }
 
 		Cleanup();
     }
@@ -63,6 +77,11 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 		thrust = (Quaternion.LookRotation(motion) * transform.forward * (speed * motion.magnitude));
 	}
 
+	public void SetPosition(Vector3 position)
+	{
+		transform.position = position;
+	}
+
 	public void Rotate(Vector3 eulerAngles)
 	{
 		transform.Rotate(eulerAngles);
@@ -78,8 +97,13 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 		if (isJumped) return;
 		if (!isGrounded) return;
 
-		force += motion * jumpPower;
+		AddForce(motion* jumpPower);
 
 		isJumped = true;
+    }
+
+	public void AddForce(Vector3 force)
+	{
+		this.force += force;
     }
 }
