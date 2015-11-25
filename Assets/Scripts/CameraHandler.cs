@@ -5,17 +5,19 @@ public class CameraHandler : MonoBehaviour, ICameraHandler
 {
 
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    }
+	void Start()
+	{
 
-    public void Rotate(Vector3 eulerAngles)
-    {
-        transform.Rotate(eulerAngles);
-    }
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+	}
+
+	public void Rotate(Vector3 eulerAngles)
+	{
+		transform.Rotate(eulerAngles);
+	}
 
 }
