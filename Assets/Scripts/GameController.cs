@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 	}
 
