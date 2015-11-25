@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
 	public GameObject camera;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		if (character == null)
 		{
@@ -21,9 +21,9 @@ public class WeaponController : MonoBehaviour
 			camera = GameObject.FindWithTag("MainCamera");
 		}
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{

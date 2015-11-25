@@ -4,17 +4,17 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject target;
+	public GameObject target;
 
-    private Vector3 inputMotion = Vector3.zero;
+	private Vector3 inputMotion = Vector3.zero;
 
 	// Use this for initialization
-	void Start ()
-    {
-	    if (target == null)
-        {
-            target = GameObject.FindWithTag("Player");
-        }
+	void Start()
+	{
+		if (target == null)
+		{
+			target = GameObject.FindWithTag("Player");
+		}
 	}
 
 	// Update is called once per frame
@@ -35,30 +35,30 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			JumpCharacter(target, Vector3.up);
-        }
-    }
+		}
+	}
 
-    void MoveTarget(GameObject gameObject, Vector3 motion)
-    {
-        if (!gameObject) return;
+	void MoveTarget(GameObject gameObject, Vector3 motion)
+	{
+		if (!gameObject) return;
 
-        ExecuteEvents.Execute<ICharacterHandler>(
-            gameObject,
-            null,
-            (handler, data) => handler.Forward(motion)
-        );
-    }
+		ExecuteEvents.Execute<ICharacterHandler>(
+			gameObject,
+			null,
+			(handler, data) => handler.Forward(motion)
+		);
+	}
 
-    void RotateTarget(GameObject gameObject, Vector3 eulerAngles)
-    {
-        if (!gameObject) return;
+	void RotateTarget(GameObject gameObject, Vector3 eulerAngles)
+	{
+		if (!gameObject) return;
 
-        ExecuteEvents.Execute<ICharacterHandler>(
-            gameObject,
-            null,
-            (handler, data) => handler.Rotate(eulerAngles)
-        );
-    }
+		ExecuteEvents.Execute<ICharacterHandler>(
+			gameObject,
+			null,
+			(handler, data) => handler.Rotate(eulerAngles)
+		);
+	}
 
 	void JumpCharacter(GameObject gameObject, Vector3 motion)
 	{
