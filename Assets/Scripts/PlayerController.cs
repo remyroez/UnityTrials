@@ -16,21 +16,21 @@ public class PlayerController : MonoBehaviour
             target = GameObject.FindWithTag("Player");
         }
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        inputMotion = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (inputMotion.magnitude > 0)
-        {
-            MoveTarget(target, inputMotion);
-        }
 
-        Vector3 mouseMotion = new Vector3(0, Input.GetAxis("Mouse X") * 100, 0);
-        if (mouseMotion.magnitude > 0)
-        {
-            RotateTarget(target, mouseMotion * Time.deltaTime);
-        }
+	// Update is called once per frame
+	void Update()
+	{
+		inputMotion = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		if (inputMotion.magnitude > 0)
+		{
+			MoveTarget(target, inputMotion);
+		}
+
+		Vector3 mouseMotion = new Vector3(0, Input.GetAxis("Mouse X") * 100, 0);
+		if (mouseMotion.magnitude > 0)
+		{
+			RotateTarget(target, mouseMotion * Time.deltaTime);
+		}
 
 		if (Input.GetButtonDown("Jump"))
 		{

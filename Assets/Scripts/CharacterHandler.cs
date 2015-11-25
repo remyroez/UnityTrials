@@ -19,7 +19,7 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 	protected bool isGrounded { get { return characterContorller ? characterContorller.isGrounded : false; } }
 
 	private bool isJumped = false;
-	
+
 	// Use this for initialization
 	void Start()
 	{
@@ -48,10 +48,10 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 		if (transform.position.y < 0)
 		{
 			Reset();
-        }
+		}
 
 		Cleanup();
-    }
+	}
 
 	void Cleanup()
 	{
@@ -97,13 +97,13 @@ public class CharacterHandler : MonoBehaviour, ICharacterHandler
 		if (isJumped) return;
 		if (!isGrounded) return;
 
-		AddForce(motion* jumpPower);
+		AddForce(motion * jumpPower);
 
 		isJumped = true;
-    }
+	}
 
 	public void AddForce(Vector3 force)
 	{
 		this.force += force;
-    }
+	}
 }
